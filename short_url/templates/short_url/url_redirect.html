@@ -20,10 +20,10 @@
 
  <form action="{% url 'short_url:url_redirect'%}" method="post" >
     {% csrf_token %}
-    <div class="url_generator" >
+    <div class="url_generator" style="height: 140px;" >
         <div class="row">
             <div class="col-11 mb-3" style="color:white; margin-left: 15px;">
-                {{form.as_p}}
+                {{form}}
             </div>
         </div>
         <div class="col-12">
