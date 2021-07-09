@@ -1,0 +1,12 @@
+.url_generator {
+      background: #212529;
+      max-width: 400px;
+      height: 150px;
+      position: relative;
+      margin-top: 20%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 15px;
+      padding-left: 15px;
+      border-radius: 40px;
+            }
