@@ -11,14 +11,13 @@ def url_generator(request):
     if request.method == 'POST':
         form = URLForm(request.POST)
         if form.is_valid():
-            instance = form.save()
-            return redirect('short_url:url_redirect_initial', instance.id)
+            return redirect('short_url:url_redirect_initial', form.short_url)
 
         context['error'] = 'URL must start with "https", "http" or "ftp" '
     return render(request, 'short_url/url_generator.html', context)
 
 
-def url_redirect(request, instance_id=None):
+def url_redirect(request, short_url=None):
     if request.method == 'POST':
         form = URLRedirectForm(request.POST)
         if form.is_valid():
@@ -26,7 +25,6 @@ def url_redirect(request, instance_id=None):
             return redirect(instance.url)
 
     form = URLRedirectForm()
-    if instance_id is not None:
-        instance = get_object_or_404(ShortURL, id=instance_id)
-        form = URLRedirectForm(initial={'short_url': instance.short_url})
+    if short_url is not None:
+        form = URLRedirectForm(initial={'short_url': short_url})
     return render(request, 'short_url/url_redirect.html', {'form': form})

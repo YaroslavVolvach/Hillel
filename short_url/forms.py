@@ -14,8 +14,8 @@ access = ('http', 'https', 'ftp')
 class URLForm(forms.Form):
     url = forms.URLField(widget=URLInput(attrs={'class': 'form-control'}))
 
-    def __init__ (self, *args, **kwargs):
-        self.short_url = 'short/{}'.format(
+    def __init__(self, *args, **kwargs):
+        self.short_url = 'short_{}'.format(
             ''.join(choice(ascii_letters + digits) for i in range(7))
         )
         super().__init__(*args, **kwargs)
@@ -23,22 +23,17 @@ class URLForm(forms.Form):
     def is_valid(self):
         if super().is_valid():
             if urlparse(self.cleaned_data['url']).scheme in access:
+                self.save(self.cleaned_data['url'])
                 return True
 
         return False
 
-    def save(self):
+    def save(self, url):
         if ShortURL.objects.filter(url=self.cleaned_data['url']):
-            instance = get_object_or_404(
-                ShortURL, url=self.cleaned_data['url']
-            )
-
+            self.short_url = get_object_or_404(ShortURL, url=url).short_url
         else:
-            instance = ShortURL.objects.create(
-                url=self.cleaned_data['url'],
-                short_url=self.short_url
-            )
-        return instance
+            ShortURL.objects.create(url=url, short_url=self.short_url)
+        # return instance
 
 
 class URLRedirectForm(forms.Form):
