@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'clothing_store.urls'
+ROOT_URLCONF = 'hillel.urls'
 
 TEMPLATES = [
 
