@@ -1,0 +1,12 @@
+.post_delete{
+      border: 10px outset black;
+      max-width: 300px;
+      min-height: 150px;
+      position: relative;
+      margin-top: 15%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 15px;
+      padding-left: 15px;
+      border-radius: 40px;
+            }

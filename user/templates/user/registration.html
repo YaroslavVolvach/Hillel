@@ -9,7 +9,7 @@
     <title>Registration</title>
 </head>
 <body>
-<a class="btn btn-warning" style="margin-left:1840px; margin-top:5px;" href="{% url 'user:login'%}">Login</a>
+<a class="btn btn-warning" style="margin-left:1840px; margin-top:5px;" href="{% url 'user_app:login'%}">Login</a>
 
     {%if message%}
         <div class="container col-3" style="background: rgba(245, 35, 35, 0.5); border-radius: 10px; margin-bottom:-7%;margin-top: 3%; ">
@@ -17,7 +17,7 @@
         </div>
     {%endif%}
 
-    <form action="{% url 'user:registration'%}" method="post" >
+    <form action="{% url 'user_app:registration'%}" method="post" >
         {% csrf_token %}
         <div class="registration">
 

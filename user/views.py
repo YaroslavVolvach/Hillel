@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm
 from django.views import generic
@@ -11,7 +8,7 @@ from django.contrib.auth import password_validation
 class RegistrationView(generic.CreateView):
     form_class = CustomUserCreationForm
     model = User
-    success_url = '/'
+    success_url = reverse_lazy('user_app:login')
     template_name = 'user/registration.html'
 
     def form_invalid(self, form):

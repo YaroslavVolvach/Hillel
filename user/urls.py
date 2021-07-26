@@ -4,7 +4,7 @@ from django.contrib.auth import views as auth_views
 from . import views
 from .forms import LoginForm
 
-app_name = 'user'
+app_name = 'user_app'
 
 urlpatterns = [
     path('registration/', views.RegistrationView.as_view(), name='registration'),

@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     # My applications
     'short_url.apps.ShortURLConfig',
     'user.apps.UserConfig',
-   
+    'post.apps.PostConfig',
+
     # Django applications
     'django.contrib.admin',
     'django.contrib.auth',

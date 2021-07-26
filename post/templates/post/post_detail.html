@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {%load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Post Detail</title>
+</head>
+<body>
+<div class="container-fluid" >
+        {%if user.is_staff%}
+            <a href="{% url 'post:post_update' post.id %}" class="btn btn-dark" style="background: #212529">Update</a>
+            <a href="{% url 'post:post_delete' post.id %}" class="btn btn-dark" style="background: #212529">Delete</a>
+        {%endif%}
+    <div class="description">
+        <h1 style="text-align: center">{{ post.title }}</h1>
+        <p class="text-justify">{{ post.text }}</p>
+        <div class="row justify-content-between" role="group" aria-label="Basic example" style="margin-right:20px; margin-top:5px;">
+            <div class="col-6"><h5>Created by:  {{ post.created_by }}</h5></div>
+            <div class="col-auto"><h5>Created at:  {{ post.created_at }}</h5></div>
+        </div>
+        <button type="button" value="Previous Page" class="btn btn-dark pull-right" style="background: #212529 margin-left: 15px" onClick="window.history.back();return false;">
+            Back
+        </button>
+
+
+</div>
+
+
+
+
+</body>
+</html>

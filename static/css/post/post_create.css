@@ -1,0 +1,12 @@
+.post_create {
+      background: #212529;
+      max-width: 500px;
+      min-height: 300px;
+      position: relative;
+      margin-top: 10%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 15px;
+      padding-left: 15px;
+      border-radius: 40px;
+            }

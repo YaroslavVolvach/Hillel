@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {%load static %}
+    <link rel="stylesheet" href="{% static 'css/post/post_create.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Post Create</title>
+</head>
+<body>
+{{update}}
+    {% if update %}
+        <form action="{% url 'post:post_update' post.id%}" method="post">
+    {% else %}
+        <form action="{% url 'post:post_create'%}" method="post">
+    {% endif %}
+        {% csrf_token %}
+        <div class="post_create">
+            <div class="row">
+                {%for field in form%}
+                    <div class="col-11" style="color:white; margin-left: 15px;">
+                        <p>{{field.label}} :</p>
+                    </div>
+                    <div class="col-11 mb-3" style="color:white; margin-left: 15px;">
+                        {{field}}
+                    </div>
+                 {%endfor%}
+            </div>
+            <div class="col-12">
+                <input type="submit" class="form-control" style="background: #ffc107; border-radius: 10px;"
+                    value="Создать пост" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

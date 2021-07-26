@@ -1,7 +1,8 @@
 from django import forms
 from django.forms.widgets import TextInput, PasswordInput
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+
 
 attrs_ = {'class': 'form-control'}
 

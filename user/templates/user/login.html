@@ -10,14 +10,14 @@
 </head>
 <body>
 
-<a class="btn btn-warning" style="margin-left:1795px; margin-top:5px;" href="{% url 'user:registration'%}">Registration</a>
+<a class="btn btn-warning" style="margin-left:1795px; margin-top:5px;" href="{% url 'user_app:registration'%}">Registration</a>
 
 {%if message%}
         <div class="container col-3" style="background: rgba(245, 35, 35, 0.5); border-radius: 10px; margin-bottom:-3%;margin-top: 3%;">
             <div style="text-align:  center;"><strong>{{message}}</strong></div>
         </div>
 {%endif%}
-<form action="{% url 'user:login'%}" method="post" >
+<form action="{% url 'user_app:login'%}" method="post" >
     {% csrf_token %}
     <div class="login">
         <div class="row">
