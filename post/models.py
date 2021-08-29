@@ -13,7 +13,7 @@ class Post(models.Model):
                                    related_name='post')
     created_at = models.DateTimeField(default=timezone.now)
 
-    def get_absolute_url (self):
+    def get_absolute_url(self):
         return reverse('post:post_detail', args=[self.id])
 
     def __str__(self):

@@ -53,7 +53,7 @@ class PostListView(ListView):
         post_filter = self.kwargs.get('my_post', 'all_posts')
 
         context = super().get_context_data()
-        context['posts'] = Post.objects.order_by('created_at')
+        context['posts'] = Post.objects.order_by('-created_at')
         context['my_posts'] = post_filter
 
         '''
