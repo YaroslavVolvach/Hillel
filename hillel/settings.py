@@ -34,6 +34,12 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'post.apps.PostConfig',
 
+
+    # Installed applications
+    'django_celery_beat',
+    'django_celery_results',
+    'core',
+
     # Django applications
     'django.contrib.admin',
     'django.contrib.auth',
@@ -106,6 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
+
 LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'Europe/Kiev'
@@ -133,3 +140,6 @@ AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+CELERY_BROKER_URL = 'redis://localhost/1'
+CELERY_RESULT_BACKEND = 'django-db'
